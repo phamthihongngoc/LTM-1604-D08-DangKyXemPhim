@@ -19,7 +19,7 @@
 
 </div>
 
----
+
 <h1 align="center">HỆ THỐNG ĐẶT VÉ XEM PHIM</h1>
 
 # 📖 1. Giới thiệu
@@ -37,7 +37,6 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 - Đảm bảo tính toàn vẹn dữ liệu với khóa ngoại và ràng buộc quan hệ  
 - Hỗ trợ khuyến mãi, combo bắp nước và QR Code xác nhận vé  
 
----
 
 # 🔧 2. Công nghệ sử dụng: [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
 
@@ -70,7 +69,7 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 - **Thread**: Mỗi kết nối client được xử lý bởi một luồng riêng trên server  
 - **Đồng bộ hóa**: Đảm bảo tránh xung đột dữ liệu khi nhiều người cùng đặt một suất chiếu  
 
---
+
 
 # 🖼️ 3. Hình ảnh chức năng 
 
@@ -119,7 +118,7 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
   <em>Hình 4: Giao diện Thanh toán</em>
 </p>
 
----
+
 
 ## 4. ⚙️ Các bước cài đặt
 - **Java JDK 8+**
@@ -254,7 +253,6 @@ String password = "your_password";
   ```
 - Nếu nhận lỗi `Duplicate entry` ở khóa `uq_bookings_seat`, nghĩa là ghế đã có người đặt → cần hiển thị thông báo phù hợp.
 
----
 
 # 📞 5. Liên hệ  
 
@@ -263,6 +261,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
