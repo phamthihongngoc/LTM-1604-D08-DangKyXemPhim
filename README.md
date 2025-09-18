@@ -261,8 +261,9 @@ String password = "your_password";
 Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **Cinema Booking**, vui lòng liên hệ:  
 
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
-- 🎓 **Khoa**: Công nghệ Thông tin – Đại học Đại Nam  
+- 🎓 **Khoa**: Công nghệ thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
