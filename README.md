@@ -68,3 +68,19 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 - **Java Multithreading**: Cho phép nhiều client đặt vé cùng lúc  
 - **Thread**: Mỗi kết nối client được xử lý bởi một luồng riêng trên server  
 - **Đồng bộ hóa**: Đảm bảo tránh xung đột dữ liệu khi nhiều người cùng đặt một suất chiếu  
+
+# 3. Hình ảnh chức năng.
+# 4. Câc bước cài đặt.
+---
+
+# 📞 5. Liên hệ  
+
+Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **Cinema Booking**, vui lòng liên hệ:  
+
+- 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
+- 🎓 **Khoa**: Công nghệ Thông tin – Đại học Đại Nam  
+- 📧 **Email**: pthn2488@gmail.com
+
+
+
+
