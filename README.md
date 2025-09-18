@@ -39,7 +39,7 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 
 ---
 
-# 🔧 2. Sử dụng trình cài đặt ngôn ngữ:  [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
+# 🔧 2. Công nghệ sử dụng: [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
 
 ## 🌐 Ngôn Ngữ Lập Trình  
 - **Java SE 17+**: Nền tảng chính  
@@ -263,6 +263,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
