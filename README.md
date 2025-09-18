@@ -70,7 +70,108 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 - **Đồng bộ hóa**: Đảm bảo tránh xung đột dữ liệu khi nhiều người cùng đặt một suất chiếu  
 
 # 🖼️ 3. Hình ảnh chức năng 
+
+<p align="center">
+  <img src="doc/admin.png" alt="Ảnh 1" width="600"/>
+</p>
+<p align="center">
+  <em>Hình 1: Giao diện Admin quản lý phim, suất chiếu và người dùng</em>
+</p>
+
+<p align="center">
+  <img src="doc/dangky.png" alt="Ảnh 2" width="600"/>
+</p>
+<p align="center">
+  <em>Hình 2: Giao diện Đăng ký tài khoản mới</em>
+</p>
+
+<p align="center">
+  <img src="doc/login.png" alt="Ảnh 3" width="600"/>
+</p>
+<p align="center">
+  <em>Hình 3: Giao diện Đăng nhập hệ thống</em>
+</p>
+
+<p align="center">
+  <img src="doc/profile.png" alt="Ảnh 4" width="600"/>
+</p>
+<p align="center">
+  <em>Hình 4: Giao diện chính người dùng – xem phim, chọn ghế, đặt vé</em>
+</p>
+
+<p align="center">
+  <img src="doc/password.png" alt="Ảnh 5" width="600"/>
+</p>
+<p align="center">
+  <em>Hình 5: Giao diện Đổi mật khẩu</em>
+</p>
+
+<p align="center">
+  <img src="doc/updateprofile.png" alt="Ảnh 6" width="600"/>
+</p>
+<p align="center">
+  <em>Hình 6: Giao diện Cập nhật thông tin cá nhân</em>
+</p>
+
+---
+
 # ⚙️ 4. Các bước cài đặt 
+### 🔹 Bước 1: Cài đặt phần mềm cần thiết
+- **Java Development Kit (JDK 8+)**  
+  - Tải từ [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) hoặc [AdoptOpenJDK](https://jdk.java.net/)  
+  - Kiểm tra cài đặt:  
+    ```bash
+    java -version
+    javac -version
+    ```
+- **PostgreSQL 12+**  
+  - Tải từ [PostgreSQL.org](https://www.postgresql.org/download/)  
+  - Cài đặt với cấu hình mặc định  
+- **PostgreSQL JDBC Driver**  
+  - Phiên bản khuyến nghị: **postgresql-42.6.0.jar**  
+  - Tải tại [jdbc.postgresql.org](https://jdbc.postgresql.org/download/)  
+  - Đặt file JAR cùng thư mục với source code  
+
+---
+
+### 🔹 Bước 2: Biên dịch source code
+
+#### 🖥️ Trên Windows
+```bash
+javac -cp .;postgresql-42.6.0.jar Login/*.java
+```
+
+#### 💻 Trên Linux/Mac
+```bash
+javac -cp .:postgresql-42.6.0.jar Login/*.java
+```
+
+---
+
+### 🔹 Bước 3: Khởi động Server Admin
+🖥️ Trên Windows
+```bash
+java -cp .;postgresql-42.6.0.jar Login.ServerAdminGUI
+```
+
+💻 Trên Linux/Mac
+```bash
+java -cp .:postgresql-42.6.0.jar Login.ServerAdminGUI
+```
+
+---
+
+### 🔹 Bước 4: Khởi động Client
+🖥️ Trên Windows
+```bash
+java -cp .;postgresql-42.6.0.jar Login.LoginGUI
+```
+
+💻 Trên Linux/Mac
+```bash
+java -cp .:postgresql-42.6.0.jar Login.LoginGUI
+
+
 ---
 
 # 📞 5. Liên hệ  
@@ -80,6 +181,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ Thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
