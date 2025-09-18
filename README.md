@@ -69,109 +69,174 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 - **Thread**: Mỗi kết nối client được xử lý bởi một luồng riêng trên server  
 - **Đồng bộ hóa**: Đảm bảo tránh xung đột dữ liệu khi nhiều người cùng đặt một suất chiếu  
 
+--
+
 # 🖼️ 3. Hình ảnh chức năng 
 
-<p align="center">
-  <img src="doc/admin.png" alt="Ảnh 1" width="600"/>
-</p>
-<p align="center">
-  <em>Hình 1: Giao diện Admin quản lý phim, suất chiếu và người dùng</em>
-</p>
+> Bạn có thể thay ảnh thật của project vào thư mục `docs/images/` với đúng tên file hoặc sửa đường dẫn bên dưới.
 
-<p align="center">
-  <img src="doc/dangky.png" alt="Ảnh 2" width="600"/>
-</p>
-<p align="center">
-  <em>Hình 2: Giao diện Đăng ký tài khoản mới</em>
-</p>
+1. **Đăng nhập**
+   - Người dùng nhập email + mật khẩu.
+   - Kiểm tra thông tin trong bảng `Users`.
+   - Nếu hợp lệ → chuyển sang giao diện đặt vé.
 
-<p align="center">
-  <img src="doc/login.png" alt="Ảnh 3" width="600"/>
-</p>
-<p align="center">
-  <em>Hình 3: Giao diện Đăng nhập hệ thống</em>
-</p>
+   ![Login Demo](docs/images/login.png)
 
-<p align="center">
-  <img src="doc/profile.png" alt="Ảnh 4" width="600"/>
-</p>
-<p align="center">
-  <em>Hình 4: Giao diện chính người dùng – xem phim, chọn ghế, đặt vé</em>
-</p>
+2. **Danh sách phim & suất chiếu**
+   - Hiển thị poster, trailer (cửa sổ từ `TrailerWindow.java`).
+   - Người dùng chọn phim, chọn giờ chiếu.
 
-<p align="center">
-  <img src="doc/password.png" alt="Ảnh 5" width="600"/>
-</p>
-<p align="center">
-  <em>Hình 5: Giao diện Đổi mật khẩu</em>
-</p>
+   ![Movie List](docs/images/movies.png)
 
-<p align="center">
-  <img src="doc/updateprofile.png" alt="Ảnh 6" width="600"/>
-</p>
-<p align="center">
-  <em>Hình 6: Giao diện Cập nhật thông tin cá nhân</em>
-</p>
+3. **Đặt vé & chọn ghế**
+   - Hiển thị sơ đồ ghế theo `total_rows` và `total_cols` trong bảng `Shows`.
+   - Ghế đã đặt hiển thị màu khác, không chọn được.
+   - Cho phép chọn nhiều ghế cùng lúc (ví dụ: F6, F1).
+
+   ![Seat Selection](docs/images/seats.png)
+
+4. **Thanh toán**
+   - Tổng hợp thông tin: phim, suất, ghế, combo, khuyến mãi.
+   - Sinh **QR Code** (sử dụng `QRCodeUtil.java`).
+   - Lưu dữ liệu vào MySQL (`Bookings`, `OrderCombos`, `BookingPromos`).
+
+   ![Payment](docs/images/payment.png)
 
 ---
 
-# ⚙️ 4. Các bước cài đặt 
-### 🔹 Bước 1: Cài đặt phần mềm cần thiết
-- **Java Development Kit (JDK 8+)**  
-  - Tải từ [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) hoặc [AdoptOpenJDK](https://jdk.java.net/)  
-  - Kiểm tra cài đặt:  
-    ```bash
-    java -version
-    javac -version
-    ```
-- **PostgreSQL 12+**  
-  - Tải từ [PostgreSQL.org](https://www.postgresql.org/download/)  
-  - Cài đặt với cấu hình mặc định  
-- **PostgreSQL JDBC Driver**  
-  - Phiên bản khuyến nghị: **postgresql-42.6.0.jar**  
-  - Tải tại [jdbc.postgresql.org](https://jdbc.postgresql.org/download/)  
-  - Đặt file JAR cùng thư mục với source code  
+## 4. ⚙️ Các bước cài đặt
+- **Java JDK 8+**
+- **MySQL Server** (khuyến nghị 8.0+)
+- IDE: **IntelliJ IDEA** hoặc **Eclipse**
+- Trình điều khiển JDBC: **MySQL Connector/J** (thêm vào classpath của project)
 
----
+### 4.2. Tạo database
+Chạy file SQL để khởi tạo DB `cinema` và các bảng cần thiết (ví dụ trong MySQL Workbench/CLI):
 
-### 🔹 Bước 2: Biên dịch source code
+```sql
+CREATE DATABASE IF NOT EXISTS cinema
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+USE cinema;
 
-#### 🖥️ Trên Windows
-```bash
-javac -cp .;postgresql-42.6.0.jar Login/*.java
+-- Bảng người dùng
+CREATE TABLE IF NOT EXISTS Users (
+    email VARCHAR(100) PRIMARY KEY,
+    password VARCHAR(100) NOT NULL,
+    fullname VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Bảng suất chiếu
+CREATE TABLE IF NOT EXISTS Shows (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    showtime DATETIME NOT NULL,
+    total_rows INT NOT NULL,
+    total_cols INT NOT NULL,
+    poster VARCHAR(255),
+    trailer VARCHAR(255)
+);
+
+-- Bảng đặt ghế
+CREATE TABLE IF NOT EXISTS Bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    showId INT NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    seat_row VARCHAR(5) NOT NULL, -- đổi sang VARCHAR để lưu A,B,C... như F
+    seat_col INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (showId) REFERENCES Shows(id) ON DELETE CASCADE,
+    FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE,
+    UNIQUE KEY uq_bookings_seat (showId, seat_row, seat_col) -- chặn trùng ghế
+);
+
+-- Bảng combo bắp nước
+CREATE TABLE IF NOT EXISTS Combos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price INT NOT NULL
+);
+
+-- Bảng order combo
+CREATE TABLE IF NOT EXISTS OrderCombos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    showId INT NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    comboId INT NOT NULL,
+    quantity INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (showId) REFERENCES Shows(id) ON DELETE CASCADE,
+    FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE,
+    FOREIGN KEY (comboId) REFERENCES Combos(id) ON DELETE CASCADE
+);
+
+-- Bảng khuyến mãi
+CREATE TABLE IF NOT EXISTS Promotions (
+    code VARCHAR(50) PRIMARY KEY,
+    discount INT NOT NULL CHECK (discount BETWEEN 0 AND 100),
+    expiry DATE NOT NULL
+);
+
+-- Liên kết booking với mã khuyến mãi
+CREATE TABLE IF NOT EXISTS BookingPromos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    showId INT NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    promoCode VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (showId) REFERENCES Shows(id) ON DELETE CASCADE,
+    FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE,
+    FOREIGN KEY (promoCode) REFERENCES Promotions(code) ON DELETE CASCADE
+);
+
+-- Dữ liệu mẫu
+INSERT INTO Users(email, password, fullname)
+VALUES ('ngoc@gmail.com', '123456', 'NgocDay')
+ON DUPLICATE KEY UPDATE fullname=VALUES(fullname);
+
+INSERT INTO Shows(title, showtime, total_rows, total_cols, poster, trailer) VALUES
+('Khế Ước Bán Dâu', '2025-09-27 19:00:00', 6, 9,
+ 'https://files.betacorp.vn/media%2fimages%2f2025%2f08%2f01%2f400x633-094149-010825-91.jpg',
+ 'https://www.youtube.com/embed/eFV2eSaDsp4?si=WoJRZzGSnXoJWx0p&amp;controls=0'),
+('Mưa Đỏ', '2025-09-22 20:00:00', 6, 10,
+ 'https://files.betacorp.vn/media%2fimages%2f2025%2f08%2f22%2f400x633-8-181310-220825-58.jpg',
+ 'https://www.youtube.com/embed/RZRb5K2aK4E?si=3ryjWqnLZa1BRzxp&amp;controls=0');
+
+INSERT INTO Combos(name, price) VALUES
+('Combo 1 Bắp + 1 Nước', 60000),
+('Combo 2 Bắp + 2 Nước', 110000),
+('Combo Family (3 Bắp + 3 Nước)', 150000);
+
+INSERT INTO Promotions(code, discount, expiry) VALUES
+('KM10', 10, '2025-12-31'),
+('KM20', 20, '2025-12-31');
 ```
 
-#### 💻 Trên Linux/Mac
-```bash
-javac -cp .:postgresql-42.6.0.jar Login/*.java
+### 4.3. Cấu hình kết nối DB
+Trong `MovieServer.java`, sửa cấu hình JDBC cho phù hợp máy của bạn:
+```java
+String url = "jdbc:mysql://localhost:3306/cinema?useUnicode=true&characterEncoding=utf8";
+String user = "root";
+String password = "your_password";
 ```
 
----
+### 4.4. Build & Run
+1. Chạy `MovieServer.java` để khởi động server.
+2. Chạy `MovieClient.java` để mở giao diện client.
+3. Đăng nhập tài khoản mẫu:
+   - **Email:** `ngoc@gmail.com`
+   - **Password:** `123456`
 
-### 🔹 Bước 3: Khởi động Server Admin
-🖥️ Trên Windows
-```bash
-java -cp .;postgresql-42.6.0.jar Login.ServerAdminGUI
-```
-
-💻 Trên Linux/Mac
-```bash
-java -cp .:postgresql-42.6.0.jar Login.ServerAdminGUI
-```
-
----
-
-### 🔹 Bước 4: Khởi động Client
-🖥️ Trên Windows
-```bash
-java -cp .;postgresql-42.6.0.jar Login.LoginGUI
-```
-
-💻 Trên Linux/Mac
-```bash
-java -cp .:postgresql-42.6.0.jar Login.LoginGUI
-
-
+### 4.5. Ghi chú xử lý đặt vé
+- Khi chọn ghế dạng `F6, F1`, hãy tách thành hai bản ghi:
+  ```sql
+  INSERT INTO Bookings(showId, email, seat_row, seat_col) VALUES
+  (:showId, :email, 'F', 6),
+  (:showId, :email, 'F', 1);
+  ```
+- Nếu nhận lỗi `Duplicate entry` ở khóa `uq_bookings_seat`, nghĩa là ghế đã có người đặt → cần hiển thị thông báo phù hợp.
+# 4. Các bước cài đặt
 ---
 
 # 📞 5. Liên hệ  
