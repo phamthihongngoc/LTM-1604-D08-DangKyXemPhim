@@ -74,46 +74,51 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 
 # 🖼️ 3. Hình ảnh chức năng 
 
-> Bạn có thể thay ảnh thật của project vào thư mục `docs/images/` với đúng tên file hoặc sửa đường dẫn bên dưới.
+> Bạn có thể thay ảnh thật của project vào thư mục `docs` với đúng tên file hoặc sửa đường dẫn bên dưới.
 
 1. **Đăng nhập**
    - Người dùng nhập email + mật khẩu.
    - Kiểm tra thông tin trong bảng `Users`.
    - Nếu hợp lệ → chuyển sang giao diện đặt vé.
 
-   ![Login Demo](docs/login.png)
-   
 <p align="center">
+  <img src="docs/login.png" alt="Login Demo">
+  <br>
   <em>Hình 1: Giao diện Đăng nhập</em>
 </p>
+
 2. **Danh sách phim & suất chiếu**
    - Hiển thị poster, trailer (cửa sổ từ `TrailerWindow.java`).
    - Người dùng chọn phim, chọn giờ chiếu.
 
-   ![Movie List](docs/movies.png)
-
 <p align="center">
-  <em>Hình 1: Giao diện Danh sách & suất chiếu </em>
+  <img src="docs/movies.png" alt="Movie List">
+  <br>
+  <em>Hình 2: Giao diện Danh sách & suất chiếu</em>
 </p>
+
 3. **Đặt vé & chọn ghế**
    - Hiển thị sơ đồ ghế theo `total_rows` và `total_cols` trong bảng `Shows`.
    - Ghế đã đặt hiển thị màu khác, không chọn được.
    - Cho phép chọn nhiều ghế cùng lúc (ví dụ: F6, F1).
 
-   ![Seat Selection](docs/seats.png)
-
 <p align="center">
-  <em>Hình 1: Giao diện  Đặt vé & chọn ghế</em>
+  <img src="docs/seats.png" alt="Seat Selection">
+  <br>
+  <em>Hình 3: Giao diện Đặt vé & chọn ghế</em>
 </p>
+
 4. **Thanh toán**
    - Tổng hợp thông tin: phim, suất, ghế, combo, khuyến mãi.
    - Sinh **QR Code** (sử dụng `QRCodeUtil.java`).
    - Lưu dữ liệu vào MySQL (`Bookings`, `OrderCombos`, `BookingPromos`).
 
-   ![Payment](docs/payment.png)
 <p align="center">
-  <em>Hình 1: Giao diện Thanh toán </em>
+  <img src="docs/payment.png" alt="Payment">
+  <br>
+  <em>Hình 4: Giao diện Thanh toán</em>
 </p>
+
 ---
 
 ## 4. ⚙️ Các bước cài đặt
@@ -258,6 +263,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ Thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
