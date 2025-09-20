@@ -119,11 +119,9 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 </p>
 
 
+#🛠️ 4. Các bước cài đặt
 
-````markdown
-## 🛠️ 4. Các bước cài đặt
-
-### 4.1. Cài đặt môi trường
+##4.1. Cài đặt môi trường
 Trước khi chạy chương trình, cần chuẩn bị các công cụ sau:
 - Cài đặt **JDK 8+**: [Download Java](https://www.oracle.com/java/technologies/javase-downloads.html)  
 - Cài đặt **MySQL Server** (khuyến nghị bản **8.0+**): [Download MySQL](https://dev.mysql.com/downloads/)  
@@ -131,18 +129,14 @@ Trước khi chạy chương trình, cần chuẩn bị các công cụ sau:
 - IDE khuyến nghị: **IntelliJ IDEA** hoặc **Eclipse**  
 - Thêm **MySQL Connector/J** (JDBC Driver) vào **classpath** của project: [Download Connector/J](https://dev.mysql.com/downloads/connector/j/)
 
----
 
-### 4.2. Clone source code
+## 4.2. Clone source code
 Mở **Terminal / CMD** và chạy:
-```bash
+
 git clone https://github.com/your-repo/cinema-booking-system.git
 cd cinema-booking-system
-````
 
----
-
-### 4.3. Khởi tạo cơ sở dữ liệu MySQL
+## 4.3. Khởi tạo cơ sở dữ liệu MySQL
 
 Mở **MySQL Workbench** hoặc CLI và chạy:
 
@@ -248,7 +242,7 @@ INSERT INTO Promotions(code, discount, expiry) VALUES
 
 ---
 
-### 4.4. Cấu hình kết nối JDBC
+## 4.4. Cấu hình kết nối JDBC
 
 Mở file `MovieServer.java` và cập nhật cấu hình:
 
@@ -266,7 +260,7 @@ String password = "your_password"; // thay bằng mật khẩu MySQL
 
 ---
 
-### 4.5. Chạy chương trình
+## 4.5. Chạy chương trình
 
 #### Chạy Server
 
@@ -284,7 +278,7 @@ String password = "your_password"; // thay bằng mật khẩu MySQL
 
 ---
 
-### 4.6. Kiểm tra đặt vé & xử lý lỗi
+## 4.6. Kiểm tra đặt vé & xử lý lỗi
 
 * Khi chọn nhiều ghế như `F6, F1`, lưu thành nhiều bản ghi:
 
@@ -305,6 +299,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
