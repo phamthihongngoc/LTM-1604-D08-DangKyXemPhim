@@ -119,9 +119,9 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 </p>
 
 
-#🛠️ 4. Các bước cài đặt
+# 🛠️ 4. Các bước cài đặt
 
-##4.1. Cài đặt môi trường
+## 4.1. Cài đặt môi trường
 Trước khi chạy chương trình, cần chuẩn bị các công cụ sau:
 - Cài đặt **JDK 8+**: [Download Java](https://www.oracle.com/java/technologies/javase-downloads.html)  
 - Cài đặt **MySQL Server** (khuyến nghị bản **8.0+**): [Download MySQL](https://dev.mysql.com/downloads/)  
@@ -299,6 +299,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
