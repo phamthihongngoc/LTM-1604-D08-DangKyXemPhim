@@ -120,14 +120,31 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 
 
 
-## 4. ⚙️ Các bước cài đặt
-- **Java JDK 8+**
-- **MySQL Server** (khuyến nghị 8.0+)
-- IDE: **IntelliJ IDEA** hoặc **Eclipse**
-- Trình điều khiển JDBC: **MySQL Connector/J** (thêm vào classpath của project)
+````markdown
+## 🛠️ 4. Các bước cài đặt
 
-### 4.2. Tạo database
-Chạy file SQL để khởi tạo DB `cinema` và các bảng cần thiết (ví dụ trong MySQL Workbench/CLI):
+### 4.1. Cài đặt môi trường
+Trước khi chạy chương trình, cần chuẩn bị các công cụ sau:
+- Cài đặt **JDK 8+**: [Download Java](https://www.oracle.com/java/technologies/javase-downloads.html)  
+- Cài đặt **MySQL Server** (khuyến nghị bản **8.0+**): [Download MySQL](https://dev.mysql.com/downloads/)  
+- Cài đặt **Git** (nếu chưa có): [Download Git](https://git-scm.com/downloads)  
+- IDE khuyến nghị: **IntelliJ IDEA** hoặc **Eclipse**  
+- Thêm **MySQL Connector/J** (JDBC Driver) vào **classpath** của project: [Download Connector/J](https://dev.mysql.com/downloads/connector/j/)
+
+---
+
+### 4.2. Clone source code
+Mở **Terminal / CMD** và chạy:
+```bash
+git clone https://github.com/your-repo/cinema-booking-system.git
+cd cinema-booking-system
+````
+
+---
+
+### 4.3. Khởi tạo cơ sở dữ liệu MySQL
+
+Mở **MySQL Workbench** hoặc CLI và chạy:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS cinema
@@ -159,12 +176,12 @@ CREATE TABLE IF NOT EXISTS Bookings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     showId INT NOT NULL,
     email VARCHAR(100) NOT NULL,
-    seat_row VARCHAR(5) NOT NULL, -- đổi sang VARCHAR để lưu A,B,C... như F
+    seat_row VARCHAR(5) NOT NULL, -- lưu A, B, C...
     seat_col INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (showId) REFERENCES Shows(id) ON DELETE CASCADE,
     FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE,
-    UNIQUE KEY uq_bookings_seat (showId, seat_row, seat_col) -- chặn trùng ghế
+    UNIQUE KEY uq_bookings_seat (showId, seat_row, seat_col)
 );
 
 -- Bảng combo bắp nước
@@ -214,10 +231,10 @@ ON DUPLICATE KEY UPDATE fullname=VALUES(fullname);
 INSERT INTO Shows(title, showtime, total_rows, total_cols, poster, trailer) VALUES
 ('Khế Ước Bán Dâu', '2025-09-27 19:00:00', 6, 9,
  'https://files.betacorp.vn/media%2fimages%2f2025%2f08%2f01%2f400x633-094149-010825-91.jpg',
- 'https://www.youtube.com/embed/eFV2eSaDsp4?si=WoJRZzGSnXoJWx0p&amp;controls=0'),
+ 'https://www.youtube.com/embed/eFV2eSaDsp4?si=WoJRZzGSnXoJWx0p&controls=0'),
 ('Mưa Đỏ', '2025-09-22 20:00:00', 6, 10,
  'https://files.betacorp.vn/media%2fimages%2f2025%2f08%2f22%2f400x633-8-181310-220825-58.jpg',
- 'https://www.youtube.com/embed/RZRb5K2aK4E?si=3ryjWqnLZa1BRzxp&amp;controls=0');
+ 'https://www.youtube.com/embed/RZRb5K2aK4E?si=3ryjWqnLZa1BRzxp&controls=0');
 
 INSERT INTO Combos(name, price) VALUES
 ('Combo 1 Bắp + 1 Nước', 60000),
@@ -229,29 +246,56 @@ INSERT INTO Promotions(code, discount, expiry) VALUES
 ('KM20', 20, '2025-12-31');
 ```
 
-### 4.3. Cấu hình kết nối DB
-Trong `MovieServer.java`, sửa cấu hình JDBC cho phù hợp máy của bạn:
+---
+
+### 4.4. Cấu hình kết nối JDBC
+
+Mở file `MovieServer.java` và cập nhật cấu hình:
+
 ```java
 String url = "jdbc:mysql://localhost:3306/cinema?useUnicode=true&characterEncoding=utf8";
-String user = "root";
-String password = "your_password";
+String user = "root";          // thay bằng user MySQL của bạn
+String password = "your_password"; // thay bằng mật khẩu MySQL
 ```
 
-### 4.4. Build & Run
-1. Chạy `MovieServer.java` để khởi động server.
-2. Chạy `MovieClient.java` để mở giao diện client.
-3. Đăng nhập tài khoản mẫu:
-   - **Email:** `ngoc@gmail.com`
-   - **Password:** `123456`
+**Giải thích nhanh:**
 
-### 4.5. Ghi chú xử lý đặt vé
-- Khi chọn ghế dạng `F6, F1`, hãy tách thành hai bản ghi:
-  ```sql
-  INSERT INTO Bookings(showId, email, seat_row, seat_col) VALUES
-  (:showId, :email, 'F', 6),
-  (:showId, :email, 'F', 1);
-  ```
-- Nếu nhận lỗi `Duplicate entry` ở khóa `uq_bookings_seat`, nghĩa là ghế đã có người đặt → cần hiển thị thông báo phù hợp.
+* `url`: địa chỉ DB (mặc định `localhost:3306`, DB name `cinema`).
+* `user`: tài khoản MySQL (thường là `root`).
+* `password`: mật khẩu MySQL của bạn.
+
+---
+
+### 4.5. Chạy chương trình
+
+#### Chạy Server
+
+1. Mở file `MovieServer.java`.
+2. Run chương trình → server khởi động, lắng nghe kết nối.
+
+#### Chạy Client
+
+1. Mở file `MovieClient.java`.
+2. Run chương trình → giao diện đặt vé hiển thị.
+3. Đăng nhập test:
+
+   * **Email:** `ngoc@gmail.com`
+   * **Password:** `123456`
+
+---
+
+### 4.6. Kiểm tra đặt vé & xử lý lỗi
+
+* Khi chọn nhiều ghế như `F6, F1`, lưu thành nhiều bản ghi:
+
+```sql
+INSERT INTO Bookings(showId, email, seat_row, seat_col) VALUES
+(:showId, :email, 'F', 6),
+(:showId, :email, 'F', 1);
+```
+
+* Nếu gặp lỗi **`Duplicate entry`** tại khóa `uq_bookings_seat` → ghế đã có người đặt.
+  → Hiển thị thông báo để người dùng chọn ghế khác.
 
 
 # 📞 5. Liên hệ  
@@ -261,6 +305,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
