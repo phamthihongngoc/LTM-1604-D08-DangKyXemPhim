@@ -297,8 +297,9 @@ INSERT INTO Bookings(showId, email, seat_row, seat_col) VALUES
 Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **Cinema Booking**, vui lòng liên hệ:  
 
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
-- 🎓 **Khoa**: Công nghệ thông tin – Đại học Đại Nam  
+- 🎓 **Khoa**: Công nghệ thông tin – Trường Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
