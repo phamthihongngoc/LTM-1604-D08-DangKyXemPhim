@@ -73,8 +73,6 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 
 # 🖼️ 3. Hình ảnh chức năng 
 
-> Bạn có thể thay ảnh thật của project vào thư mục `docs` với đúng tên file hoặc sửa đường dẫn bên dưới.
-
 1. **Đăng nhập**
    - Người dùng nhập email + mật khẩu.
    - Kiểm tra thông tin trong bảng `Users`.
@@ -320,6 +318,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Người thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Trường Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
