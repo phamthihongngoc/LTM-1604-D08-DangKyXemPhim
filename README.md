@@ -307,7 +307,7 @@ INSERT INTO Bookings(showId, email, seat_row, seat_col) VALUES
 (:showId, :email, 'F', 1);
 ```
 
-* Nếu gặp lỗi **`Duplicate entry`** tại khóa `uq_bookings_seat` → ghế đã có người đặt.
+* Nếu gặp lỗi **`Duplicate entry`** tại khóa `uq_bookings_seat` → ghế đã có người đặt
   → Hiển thị thông báo để người dùng chọn ghế khác.
 
 
@@ -318,6 +318,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Người thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Trường Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
