@@ -40,31 +40,31 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
 
 # 🔧 2. Công nghệ sử dụng: [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
 
-## 🌐 Ngôn Ngữ Lập Trình  
+### 🌐 Ngôn Ngữ Lập Trình  
 - **Java SE 17+**: Nền tảng chính  
 - **Tính năng**: Hướng đối tượng, đa luồng, kết nối mạng  
 - **Ứng dụng**: Viết toàn bộ client, server và business logic  
 
-## 🎨 Giao Diện Người Dùng  
+### 🎨 Giao Diện Người Dùng  
 - **Java Swing**: Thư viện GUI cho ứng dụng desktop  
 - **JFrame**: Container chính cho các cửa sổ (Login, Movie List, Trailer…)  
 - **JPanel**: Quản lý bố cục hiển thị phim, ghế, thanh toán  
 - **Thành phần Swing**: `JButton`, `JTable`, `JTextField`, `JPasswordField`…  
 - **Xử lý sự kiện**: `ActionListener`, `MouseListener` để bắt thao tác người dùng  
 
-## 🌐 Truyền Thông Mạng  
+### 🌐 Truyền Thông Mạng  
 - **Giao thức TCP/IP**: Đảm bảo truyền thông tin đặt vé ổn định  
 - **Lập trình Socket**: Sử dụng `Socket` và `ServerSocket` trong Java  
 - **Port**: 12345 cho kết nối client-server  
 - **Luồng đối tượng**: `ObjectInputStream` / `ObjectOutputStream` để trao đổi dữ liệu  
 
-## 🗄️ Cơ Sở Dữ Liệu  
+### 🗄️ Cơ Sở Dữ Liệu  
 - **MySQL 8+**: Hệ quản trị cơ sở dữ liệu  
 - **Trình điều khiển JDBC**: `mysql-connector-java`  
 - **Lược đồ cơ sở dữ liệu**: Quản lý bảng `Users`, `Shows`, `Bookings`, `Combos`, `Promotions`  
 - **Các thao tác SQL**: `SELECT`, `INSERT`, `UPDATE`, `DELETE` kèm ràng buộc `FOREIGN KEY` và `UNIQUE` để ngăn trùng ghế  
 
-## 🔄 Xử Lý Đa Luồng  
+### 🔄 Xử Lý Đa Luồng  
 - **Java Multithreading**: Cho phép nhiều client đặt vé cùng lúc  
 - **Thread**: Mỗi kết nối client được xử lý bởi một luồng riêng trên server  
 - **Đồng bộ hóa**: Đảm bảo tránh xung đột dữ liệu khi nhiều người cùng đặt một suất chiếu  
@@ -320,6 +320,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Người thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Trường Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
