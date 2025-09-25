@@ -86,6 +86,17 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
   <em>Hình 1: Giao diện Đăng nhập</em>
 </p>
 
+2. **Đăng ký**
+   - Người dùng nhập email + mật khẩu
+   - Nhập lại mật khẩu
+   - Hợp lệ -> Đăng ký thành công.
+   - 
+<p align="center">
+  <img src="docs/dangky.png" alt="dangky">
+  <br>
+  <em>Hình 1: Giao diện Đăng ký</em>
+</p>
+     
 2. **Danh sách phim & suất chiếu**
    - Hiển thị poster, trailer (cửa sổ từ `TrailerWindow.java`).
    - Người dùng chọn phim, chọn giờ chiếu.
@@ -299,6 +310,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Trường Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
