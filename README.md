@@ -90,41 +90,41 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
    - Người dùng nhập email + mật khẩu
    - Nhập lại mật khẩu
    - Hợp lệ -> Đăng ký thành công.
-   - 
+   
 <p align="center">
   <img src="docs/dangky.png" alt="dangky">
   <br>
   <em>Hình 1: Giao diện Đăng ký</em>
 </p>
      
-2. **Danh sách phim & suất chiếu**
+3. **Danh sách phim & suất chiếu**
    - Hiển thị poster, trailer (cửa sổ từ `TrailerWindow.java`).
    - Người dùng chọn phim, chọn giờ chiếu.
 
 <p align="center">
-  <img src="docs/movies.png" alt="Movie List">
+  <img src="docs/home.png" alt="Movie List">
   <br>
   <em>Hình 2: Giao diện Danh sách & suất chiếu</em>
 </p>
 
-3. **Đặt vé & chọn ghế**
+4. **Đặt vé & chọn ghế**
    - Hiển thị sơ đồ ghế theo `total_rows` và `total_cols` trong bảng `Shows`.
    - Ghế đã đặt hiển thị màu khác, không chọn được.
    - Cho phép chọn nhiều ghế cùng lúc (ví dụ: F6, F1).
 
 <p align="center">
-  <img src="docs/seats.png" alt="Seat Selection">
+  <img src="docs/datve.png" alt="Seat Selection">
   <br>
   <em>Hình 3: Giao diện Đặt vé & chọn ghế</em>
 </p>
 
-4. **Thanh toán**
+5. **Thanh toán**
    - Tổng hợp thông tin: phim, suất, ghế, combo, khuyến mãi.
    - Sinh **QR Code** (sử dụng `QRCodeUtil.java`).
    - Lưu dữ liệu vào MySQL (`Bookings`, `OrderCombos`, `BookingPromos`).
 
 <p align="center">
-  <img src="docs/payment.png" alt="Payment">
+  <img src="docs/Thanhtoan.png" alt="Payment">
   <br>
   <em>Hình 4: Giao diện Thanh toán</em>
 </p>
@@ -310,6 +310,7 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 - 👨‍🎓 **Sinh viên thực hiện**: Phạm Thị Hồng Ngọc 
 - 🎓 **Khoa**: Công nghệ thông tin – Trường Đại học Đại Nam  
 - 📧 **Email**: pthn2488@gmail.com
+
 
 
 
