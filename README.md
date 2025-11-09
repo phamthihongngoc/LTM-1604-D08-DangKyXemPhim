@@ -116,7 +116,7 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
    - Hiển thị from điền thông tin cá nhân
    - Chọn Combo + khuyến mãi
 
-    ![Login Demo](imgs/dienthongtinchoncombo.png)
+    ![Login Demo](imgs/dienthongtin_choncombo.png)
 
 5. **Thanh toán**
    - Tổng hợp thông tin: phim, suất, ghế, combo, khuyến mãi.
