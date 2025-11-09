@@ -18,8 +18,6 @@
 [![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
 </div>
----
-# ỨNG DỤNG ĐẶT VÉ XEM PHIM
 ## 📖 1. Giới thiệu
 Ứng dụng đặt vé xem phim dùng để đặt vé xem phim có các Chức năng 1. Chức năng 2. 
 
@@ -30,9 +28,6 @@ làm theo các bước sau:
 3. Một số hình ảnh
 4. Các bước cài đặt
 5. Liên hệ cá nhân
-=======
-
----
 <h1 align="center">HỆ THỐNG ĐẶT VÉ XEM PHIM</h1>
 
 # 📖 1. Giới thiệu
