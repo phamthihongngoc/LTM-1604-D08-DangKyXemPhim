@@ -18,7 +18,6 @@
 [![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
 </div>
-<<<<<<< HEAD
 
 ## 📖 1. Giới thiệu
 Ứng dụng đặt vé xem phim dùng để đặt vé xem phim có các Chức năng 1. Chức năng 2. 
@@ -125,7 +124,7 @@ Hệ thống **Cinema Booking** là một giải pháp phần mềm hiện đạ
     ![Login Demo](imgs/thanhtoan.png)
 
 6. **Vé điện tử**
-   - Tổng hợp thông tin: phim, suất, ghế, tổng ti
+   - Tổng hợp thông tin: phim, suất, ghế, tổng tiền
    - Lưu dữ liệu vào MySQL (`Bookings`, `OrderCombos`, `BookingPromos`).
     ![Login Demo](imgs/vedientu.png)
 
@@ -189,12 +188,3 @@ Nếu bạn có bất kỳ thắc mắc hoặc cần hỗ trợ về dự án **
 
 Cảm ơn bạn đã quan tâm và sử dụng hệ thống hỗ trợ trợ cấp xã hội! ❤️
 
-
-
-
-
-
-
-
-
->>>>>>> 02ad68388189bcd95de9caadc1686bc143d2fc55
